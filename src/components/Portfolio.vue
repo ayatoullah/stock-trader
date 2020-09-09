@@ -19,6 +19,7 @@
     </div>
   </div>
 </template>
+
 <style scoped>
 .container{
     margin:2%;
