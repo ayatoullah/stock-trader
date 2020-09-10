@@ -14,7 +14,7 @@
                   <input type="text" class="form-control" />
                 </div>
                 <div class="col-offset-2 col-8">
-                  <button class="btn btn-success">Buy</button>
+                  <button class="btn btn-success" @click="buy">Buy</button>
                 </div>
               </div>
             </div>
@@ -25,6 +25,9 @@
   </section>
 </template>
 <script>
+import { mapActions } from "vuex";
+import * as types from "../store/types";
+
 export default {
   data() {
     return {
@@ -32,9 +35,14 @@ export default {
         { name: "BMW", price: 75 },
         { name: "Apple", price: 111 },
         { name: "Twitter", price: 312 },
-        { name: "Google", price: 9},
+        { name: "Google", price: 9 },
       ],
     };
+  },
+  methods: {
+    ...mapActions({
+      buy: types.ACTION_FUNDS_DECREMENT,
+    }),
   },
 };
 </script>
